@@ -10,7 +10,6 @@
 <script>
 const textos = {
   es:{
-    titulo:"Tienda de Zapatos",
     subtitulo:"Los mejores zapatos al mejor precio",
     inicio:"Inicio",
     productos:"Productos",
@@ -29,7 +28,6 @@ const textos = {
     carrito_vacio: "No hay productos agregados"
   },
   en:{
-    titulo:"Shoe Store",
     subtitulo:"The best shoes at the best price",
     inicio:"Home",
     productos:"Products",
@@ -54,7 +52,6 @@ let idiomaActual="es";
 function cambiarIdioma(){
   idiomaActual = idiomaActual==="es"?"en":"es";
   const t=textos[idiomaActual];
-  document.getElementById("titulo").textContent=t.titulo;
   document.getElementById("subtitulo").textContent=t.subtitulo;
   document.getElementById("link-inicio").textContent=t.inicio;
   document.getElementById("link-contacto").textContent=t.contacto;
@@ -101,7 +98,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 <body>
 <header>
-<h1 id="titulo">Tienda de Zapatos</h1>
+ <img src="IMG/logo/loguito.png" alt="Mocacines Bolivia" width="150" height="150">
 <p id="subtitulo">Los mejores zapatos al mejor precio</p>
 </header>
 
@@ -208,21 +205,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 </div>
 </div>
 <script src="carrito2.js"></script>
-<script>
-// Inicializar carrito
-document.addEventListener('DOMContentLoaded', ()=>{
-  initCarrito();
 
-  // Conectar botones de los productos al carrito
-  document.querySelectorAll('.producto button').forEach(btn=>{
-    btn.addEventListener('click', e=>{
-      const nombre = btn.dataset.nombre || e.target.closest('.producto').querySelector('h3').textContent; 
-      const precio = btn.dataset.precio;
-      agregarAlCarrito(nombre, precio);
-    });
-  });
-});
-</script>
 </body>
 </html>
 

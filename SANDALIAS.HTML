@@ -9,7 +9,6 @@
 <script>
 const textos = {
   es:{
-    titulo:"Tienda de Sandalias",
     subtitulo:"Las mejores sandalias al mejor precio",
     inicio:"Inicio",
     productos:"Productos",
@@ -28,7 +27,6 @@ const textos = {
     carrito_vacio: "No hay productos agregados"
   },
   en:{
-    titulo:"Sandal Store",
     subtitulo:"The best sandals at the best price",
     inicio:"Home",
     productos:"Products",
@@ -53,9 +51,7 @@ let idiomaActual="es";
 function cambiarIdioma(){
   idiomaActual = idiomaActual==="es"?"en":"es";
   const t=textos[idiomaActual];
-  document.getElementById("titulo").textContent=t.titulo;
   document.getElementById("subtitulo").textContent=t.subtitulo;
-  document.getElementById("link-inicio").textContent=t.inicio;
   document.getElementById("link-contacto").textContent=t.contacto;
   document.getElementById("idioma-btn").textContent=t.idioma;
   document.getElementById("footer-text").textContent=t.footer;
@@ -73,34 +69,12 @@ function cambiarModo(){
 }
 function mostrarMensaje(){alert(textos[idiomaActual].mensaje);}
 
-document.addEventListener('DOMContentLoaded', ()=>{
-  // Botones de productos
-  document.querySelectorAll('.producto button').forEach(btn=>{
-    btn.addEventListener('click', e=>{
-      const nombre = btn.dataset.nombre || e.target.closest('.producto').querySelector('h3').textContent; 
-      const precio = btn.dataset.precio;
-      agregarAlCarrito(nombre, precio);
-
-      // Cambiar color al hacer click
-      btn.classList.add('clicked');
-      setTimeout(()=>btn.classList.remove('clicked'), 300); // Vuelve al color original en 0.3s
-    });
-  });
-
-  // Botones de navegación o modo/idioma si quieres también
-  document.querySelectorAll('button').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      btn.classList.add('clicked');
-      setTimeout(()=>btn.classList.remove('clicked'), 300);
-    });
-  });
-});
 </script>
 </head>
 
 <body>
 <header>
-<h1 id="titulo">Tienda de Sandalias</h1>
+<img src="IMG/logo/loguito.png" alt="Mocacines Bolivia" width="150" height="150">
 <p id="subtitulo">Las mejores sandalias al mejor precio</p>
 </header>
 
@@ -113,62 +87,63 @@ document.addEventListener('DOMContentLoaded', ()=>{
 </nav>
 
 <main>
-  <!-- Productos -->
   <section>
     <h2>Productos</h2>
     <div class="productos-grid">
+
+      <!-- Productos -->
       <div class="producto">
-        <img src="IMG\sandalias\S1.PNG" alt="">
+        <img src="IMG/sandalias/S1.PNG" alt="">
         <h3>Sandalia Clásica</h3>
         <p>45.99 Bs</p>
         <button data-nombre="Sandalia Clásica" data-precio="45.99">Comprar</button>
       </div>    
 
       <div class="producto">
-        <img src="IMG\sandalias\S2.PNG" alt="">
+        <img src="IMG/sandalias/S2.PNG" alt="">
         <h3>Sandalia Deportiva</h3>
         <p>55.50 Bs</p>
         <button data-nombre="Sandalia Deportiva" data-precio="55.50">Comprar</button>
       </div>
 
       <div class="producto">
-        <img src="IMG\sandalias\S3.PNG" alt="">
+        <img src="IMG/sandalias/S3.PNG" alt="">
         <h3>Sandalia Elegante</h3>
         <p>75.00 Bs</p>
         <button data-nombre="Sandalia Elegante" data-precio="75.00">Comprar</button>
       </div>
 
       <div class="producto">
-        <img src="IMG\sandalias\S4.PNG" alt="">
+        <img src="IMG/sandalias/S4.PNG" alt="">
         <h3>Sandalia Casual</h3>
         <p>35.90 Bs</p>
         <button data-nombre="Sandalia Casual" data-precio="35.90">Comprar</button>
       </div>
 
       <div class="producto">
-        <img src="IMG\sandalias\S5.PNG" alt="">
+        <img src="IMG/sandalias/S5.PNG" alt="">
         <h3>Sandalia Clásica</h3>
         <p>48.50 Bs</p>
         <button data-nombre="Sandalia Clásica (2)" data-precio="48.50">Comprar</button>
       </div>
 
       <div class="producto">
-        <img src="IMG\sandalias\S6.PNG" alt="">
+        <img src="IMG/sandalias/S6.PNG" alt="">
         <h3>Sandalia Deportiva</h3>
         <p>60.00 Bs</p>
         <button data-nombre="Sandalia Deportiva (2)" data-precio="60.00">Comprar</button>
       </div>
 
       <div class="producto">
-        <img src="IMG\sandalias\S7.PNG" alt="">
+        <img src="IMG/sandalias/S7.PNG" alt="">
         <h3>Sandalia Elegante</h3>
         <p>85.00 Bs</p>
         <button data-nombre="Sandalia Elegante (2)" data-precio="85.00">Comprar</button>
       </div>
+
     </div>
   </section>
 </main>
-
 
 <!-- Modal carrito -->
 <div id="modal-carrito" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
@@ -190,22 +165,25 @@ document.addEventListener('DOMContentLoaded', ()=>{
 </div>
 
 <footer>
-<p id="footer-text">© 2025 Tienda de Mocacines - Todos los derechos reservados.</p>
-
+<p id="footer-text">© 2025 Tienda de Sandalias - Todos los derechos reservados.</p>
 </footer>
 
 <script src="carrito2.js"></script>
+
 <script>
-// Inicializar carrito
+// Inicializar carrito y conectar botones SIN duplicar compras
 document.addEventListener('DOMContentLoaded', ()=>{
   initCarrito();
 
-  // Conectar botones de los productos al carrito
   document.querySelectorAll('.producto button').forEach(btn=>{
     btn.addEventListener('click', e=>{
       const nombre = btn.dataset.nombre || e.target.closest('.producto').querySelector('h3').textContent; 
       const precio = btn.dataset.precio;
       agregarAlCarrito(nombre, precio);
+
+      // Animación visual
+      btn.classList.add('clicked');
+      setTimeout(()=>btn.classList.remove('clicked'), 300);
     });
   });
 });

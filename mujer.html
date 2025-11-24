@@ -10,8 +10,6 @@
 <script>
 const textos = {
   es:{
-    titulo:"Tienda de Mocacines",
-    subtitulo:"Los mejores mocacines al mejor precio",
     inicio:"Inicio",
     productos:"Productos",
     contacto:"Contacto",
@@ -29,8 +27,6 @@ const textos = {
     carrito_vacio: "No hay productos agregados"
   },
   en:{
-    titulo:"Moccasin Store",
-    subtitulo:"The best moccasins at the best price",
     inicio:"Home",
     productos:"Products",
     contacto:"Contact",
@@ -54,8 +50,6 @@ let idiomaActual="es";
 function cambiarIdioma(){
   idiomaActual = idiomaActual==="es"?"en":"es";
   const t=textos[idiomaActual];
-  document.getElementById("titulo").textContent=t.titulo;
-  document.getElementById("subtitulo").textContent=t.subtitulo;
   document.getElementById("link-inicio").textContent=t.inicio;
   document.getElementById("link-contacto").textContent=t.contacto;
   document.getElementById("idioma-btn").textContent=t.idioma;
@@ -101,8 +95,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 <body>
 <header>
-<h1 id="titulo">Tienda de Mocacines</h1>
-<p id="subtitulo">Los mejores mocacines al mejor precio</p>
+<img src="IMG/logo/loguito.png" alt="Mocacines Bolivia" width="150" height="150">
 </header>
 
 <nav>
@@ -197,23 +190,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
 </div>
 </div>
 <script src="carrito2.js"></script>
-<script>
-// Inicializar carrito
-document.addEventListener('DOMContentLoaded', ()=>{
-initCarrito();
-
-// Conectar botones de los productos al carrito
- document.querySelectorAll('.producto button').forEach(btn=>{
-btn.addEventListener('click', e=>{
-// Captura el nombre (del h3) o directamente del data-nombre del botón
-const nombre = btn.dataset.nombre || e.target.closest('.producto').querySelector('h3').textContent; 
- const precio = btn.dataset.precio; // Captura el precio del atributo data-precio
-
-        // Llama a la nueva función que acepta el precio
-        agregarAlCarrito(nombre, precio);
- });
- });
-});
-</script>
 </body>
 </html>
