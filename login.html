@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login - Mocacines Bolivia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1>Mocacines Bolivia</h1>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Inicio</a>
+      <a href="login.html">Iniciar sesión</a>
+       <label for="langSelect" class="inline-label">Idioma</label>
+      <select id="langSelect" aria-label="Idioma">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+
+      <label for="themeToggle" class="inline-label">Tema</label>
+      <select id="themeSelect" aria-label="Tema">
+        <option value="light">Claro</option>
+        <option value="dark">Oscuro</option>
+      </select>
+ 
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="login-card">
+      <h2 id="LoginTitle">Iniciar sesión</h2>
+      <form id="loginForm" autocomplete="off">
+        <label for="username" id="labelUser">Usuario</label>
+        <input id="username" name="username" required placeholder="usuario">
+
+        <label for="password" id="labelPass">Contraseña</label>
+        <input id="password" name="password" type="password" required placeholder="contraseña">
+
+        <label for="captchaInput" id="labeCaptcha">Captcha: <span id="captchaText" class="captcha-text"></span></label>
+        <div class="captcha-row">
+          <input id="captchaInput" required placeholder="Escribe el resultado">
+          <button type="button" id="refreshCaptcha" class="link-btn">↻</button>
+        </div>
+
+        <p id="error" class="error" aria-live="polite"></p>
+        <button type="submit" id="loginBtn" class="btn">Entrar</button>
+      </form>
+
+      <p class="help">Usuario demo: <strong>alumno1</strong> / Contraseña: <strong>abc123</strong></p>
+      <p class="help">(También puedes crear tu propio usuario en el campo "usuario" para pruebas locales.)</p>
+    </section>
+  </main>
+   <br><br><br><br> <br><br><br>
+      <br><br><br>
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Mocacines Bolivia</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

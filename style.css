@@ -1,0 +1,329 @@
+:root{
+  --bg: #ffffff;
+  --text: #222;
+  --accent: #cc0000;   /* 🔥 Rojo elegante para marca */
+  --muted: #666;
+
+  /* 🎨 Colores para el LOGIN en modo día */
+  --login-bg: #ffffff;
+  --login-text: #222;
+  --login-input-bg: #ffffff;
+  --login-input-border: #ddd;
+}
+
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.container{
+  max-width:1000px;
+  margin:24px auto;
+  padding:0 16px;
+}
+
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 16px;
+  background:var(--accent);
+  color:white;
+}
+
+.brand h1{
+  margin:0;
+  font-size:20px;
+}
+
+.brand .subtitle{
+  margin:0;
+  font-size:13px;
+  opacity:0.9;
+}
+
+.main-nav a{
+  color:white;
+  margin-left:12px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.main-nav select{
+  margin-left:8px;
+  padding:6px;
+  border-radius:6px;
+  border:none;
+}
+
+.hero{
+  padding:32px;
+  background:linear-gradient(90deg, rgba(204,0,0,0.06), rgba(0,0,0,0.02)); /* degradado rojo suave */
+  text-align:center;
+}
+
+.hero-img{
+  height:220px;
+  border:2px dashed #ddd;
+  margin:14px auto;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  width:90%;
+  max-width:700px;
+}
+
+.btn{
+  background:var(--accent);
+  color:white;
+  padding:10px 16px;
+  text-decoration:none;
+  border-radius:8px;
+  display:inline-block;
+  margin-top:12px;
+}
+
+.instructions{
+  margin-top:18px;
+  background:#f9f9f9;
+  padding:12px;
+  border-radius:8px;
+}
+
+/* 🔥 LOGIN con soporte para tema oscuro */
+.login-card{
+  max-width:420px;
+  margin:28px auto;
+  padding:18px;
+  border-radius:10px;
+  background:var(--login-bg);          /* ← dinámico */
+  color:var(--login-text);            /* ← dinámico */
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+  border-top:5px solid var(--accent); /* borde rojo */
+  transition: background 0.3s, color 0.3s;
+}
+
+.login-card h2{
+  margin-top:0;
+}
+
+.login-card label{
+  display:block;
+  margin:10px 0 6px;
+  font-weight:600;
+  color:var(--login-text);            /* ← dinámico */
+}
+
+.login-card input{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  background:var(--login-input-bg);    /* ← dinámico */
+  color:var(--login-text);             /* ← dinámico */
+  border:1px solid var(--login-input-border); /* ← dinámico */
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.captcha-text{
+  display:inline-block;
+  padding:6px 8px;
+  background:var(--login-input-bg);    /* ← dinámico */
+  color:var(--login-text);             /* ← dinámico */
+  border-radius:6px;
+  margin-left:8px;
+  font-weight:700;
+  border:1px solid var(--login-input-border); /* ← dinámico */
+}
+
+.captcha-row input{
+  background:var(--login-input-bg);    /* ← dinámico */
+  color:var(--login-text);             /* ← dinámico */
+  border:1px solid var(--login-input-border); /* ← dinámico */
+}
+
+.link-btn{
+  background:transparent;
+  border:none;
+  color:var(--accent);
+  cursor:pointer;
+}
+
+.error{
+  color:#b00020;
+  min-height:18px;
+}
+
+.site-footer{
+  background:var(--accent);
+  color:white;
+  padding:10px;
+  text-align:center;
+  margin-top:24px;
+}
+
+.logo-placeholder{
+  height:120px;
+  border:2px dashed #ddd;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  margin:12px 0;
+}
+
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+
+.card{
+  background:white;
+  padding:12px;
+  border-radius:8px;
+  box-shadow:0 6px 14px rgba(0,0,0,0.06);
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+.price{
+  color:var(--accent);
+  font-weight:700;
+  margin-top:8px;
+}
+
+/* 🔥 Tema oscuro */
+.dark{
+  --bg:#121212;
+  --text:#e9e9e9;
+  --accent:#ff4444;  /* rojo brillante */
+  --muted:#999;
+
+  /* 🌙 LOGIN en modo oscuro */
+  --login-bg:#1e1e1e;
+  --login-text:#f4f4f4;
+  --login-input-bg:#2b2b2b;
+  --login-input-border:#555;
+}
+
+/* Estilos por defecto para TODAS las pantallas (incluyendo PC) */
+.site-header {
+  display: flex; /* Asegura que se use Flexbox */
+  flex-direction: row; /* **Clave para que se vea horizontal en PC** */
+  align-items: center;
+  justify-content: space-between; /* Ejemplo de cómo distribuir los elementos */
+}
+
+/* Estilos que SÓLO se aplican en pantallas de 600px o menos */
+@media(max-width:600px){
+  .site-header{
+    flex-direction: column; /* Cambia a vertical en móvil */
+    gap: 10px;
+  }
+  .brand{
+    text-align: center;
+  }
+}
+
+/* ----------------------------------------------------
+   BLOQUES DE PRODUCTO (ESTILO MINIMALISTA + TUS COLORES)
+----------------------------------------------------- */
+
+.product-section {
+  margin-top: 32px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.product-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: transform 0.2s ease;
+  border-top: 4px solid var(--accent); /* rojo elegante */
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-card h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #eee;
+}
+
+.product-card a {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.product-card a:hover {
+  opacity: 0.85;
+}
+
+/* 🌙 MODO OSCURO para productos */
+.dark .product-card {
+  background: #1e1e1e;
+  border-top-color: var(--accent);
+}
+
+.dark .product-card h3 {
+  color: var(--text);
+}
+
+.dark .product-card img {
+  border-color: #444;
+}
+
+
+.main-nav a,
+.main-nav .inline-label,
+.main-nav #langSelect {
+  /* Agrega 15 píxeles de espacio a la derecha de cada elemento */
+  margin-right: 7px; 
+  /* Opcional: También podrías usar padding-right para el mismo efecto visual 
+     padding-right: 15px;
+  */
+}
+
+/* Opcional: Para asegurar que el último elemento (select) no tenga margen extra si no lo quieres */
+.main-nav #langSelect {
+  margin-right: 0;
+}
+
+/*stilo de la pagina search

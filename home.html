@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Home - Mocacines Bolivia</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <h1 id="siteTitle">Mocacines Bolivia</h1>
+      <p id="siteTag" class="subtitle">Artesanía y calidad</p>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html" id="navHome">Inicio</a>
+      <a href="home.html" id="navHome2">Home</a>
+      <a href="#" id="logout" class="hidden">Cerrar sesión</a>
+
+      <label for="langSelect" class="inline-label">Idioma</label>
+      <select id="langSelect">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+
+      <label for="themeSelect" class="inline-label">Tema</label>
+      <select id="themeSelect">
+        <option value="light">Claro</option>
+        <option value="dark">Oscuro</option>
+      </select>
+
+    
+  <!-- Buscador -->
+    <form class="search-form" id="searchForm" action="search_results.html" method="get">
+    <select id="search-category" name="category">
+    <option value="all_results.html">Todos los departamentos</option>
+    <option value="MOCACINES.HTML">Mocasines</option>
+    <option value="ZAPATOS.HTML">Zapatos</option>
+    <option value="SANDALIAS.html">Sandalias</option>
+    <option value="hombres.html">Hombres</option>
+    <option value="Mujer.html">Mujer</option>
+    <option value="ninos_results.html">Niños</option>
+  </select>
+  <input type="text" placeholder="Buscar en Mocacines Bolivia" name="q">
+  <button type="submit">🔍</button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+  <!-- SECCIÓN DE BIENVENIDA -->
+  <section id="welcomeSection">
+    <h2 id="welcomeTitle">Bienvenido</h2>
+    <p id="welcomeText">Gracias por visitar nuestra tienda de mocacines artesanales.</p>
+  </section>
+
+  <!-- SECCIÓN DE PRODUCTOS -->
+  <section class="product-section">
+    <h2>Productos</h2>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <h3>Mocacines</h3>
+        <img src="IMG/mocacines/M1.PNG" alt="Mocacín Clásico" width="400" height="300">
+        <a href="MOCACINES.HTML">Ver producto</a>
+      </div>
+
+      <div class="product-card">
+        <h3>Zapatos</h3>
+        <img src="IMG/zapatos/Z1.PNG" alt="Mocacín Deportivo" width="400" height="300">
+        <a href="ZAPATOS.HTML">Ver producto</a>
+      </div>
+
+      <div class="product-card">
+        <h3>Sandalias</h3>
+        <img src="IMG/sandalias/S1.PNG" alt="Mocacín Premium" width="400" height="300">
+        <a href="SANDALIAS.HTML">Ver producto</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Mocacines Bolivia</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

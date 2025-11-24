@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tienda de Zapatos</title>
+    <link rel="stylesheet" href="producto.css">
+    <link rel="stylesheet" href="style/redessociales.css">
+
+
+<script>
+const textos = {
+  es:{
+    titulo:"Tienda de Zapatos",
+    subtitulo:"Los mejores zapatos al mejor precio",
+    inicio:"Inicio",
+    productos:"Productos",
+    contacto:"Contacto",
+    modo:"Modo Oscuro",
+    idioma:"Cambiar a Inglés",
+    mensaje:"¡Gracias por tu interés! Pronto añadiremos más zapatos!",
+    footer:"© 2025 Tienda de Zapatos - Todos los derechos reservados.",
+    carrito_titulo: "Carrito de compras",
+    carrito_producto: "Producto",
+    carrito_cantidad: "Cant.",
+    carrito_precio: "Precio Bs.",
+    carrito_subtotal: "Subtotal (Bs.)",
+    carrito_total: "TOTAL:",
+    carrito_cerrar: "Cerrar",
+    carrito_vacio: "No hay productos agregados"
+  },
+  en:{
+    titulo:"Shoe Store",
+    subtitulo:"The best shoes at the best price",
+    inicio:"Home",
+    productos:"Products",
+    contacto:"Contact",
+    modo:"Dark Mode",
+    idioma:"Switch to Spanish",
+    mensaje:"Thanks for your interest! More shoes coming soon!",
+    footer:"© 2025 Shoe Store - All rights reserved.",
+    carrito_titulo: "Shopping Cart",
+    carrito_producto: "Product",
+    carrito_cantidad: "Qty.",
+    carrito_precio: "Price Bs",
+    carrito_subtotal: "Subtotal (Bs.)",
+    carrito_total: "TOTAL:",
+    carrito_cerrar: "Close",
+    carrito_vacio: "No products added"
+  }
+};
+
+let idiomaActual="es";
+
+function cambiarIdioma(){
+  idiomaActual = idiomaActual==="es"?"en":"es";
+  const t=textos[idiomaActual];
+  document.getElementById("titulo").textContent=t.titulo;
+  document.getElementById("subtitulo").textContent=t.subtitulo;
+  document.getElementById("link-inicio").textContent=t.inicio;
+  document.getElementById("link-contacto").textContent=t.contacto;
+  document.getElementById("idioma-btn").textContent=t.idioma;
+  document.getElementById("footer-text").textContent=t.footer;
+  document.getElementById("carrito-titulo").textContent=t.carrito_titulo;
+  document.getElementById("carrito-th-producto").textContent=t.carrito_producto;
+  document.getElementById("carrito-th-cantidad").textContent=t.carrito_cantidad;
+  document.getElementById("carrito-th-precio").textContent=t.carrito_precio;
+  document.getElementById("carrito-th-subtotal").textContent=t.carrito_subtotal;
+  document.getElementById("carrito-cerrar-btn").textContent=t.carrito_cerrar;
+}
+
+function cambiarModo(){
+  document.body.classList.toggle("dark");
+  document.getElementById("modo-btn").textContent = document.body.classList.contains("dark") ? (idiomaActual==="es"?"Modo Claro":"Light Mode") : textos[idiomaActual].modo;
+}
+function mostrarMensaje(){alert(textos[idiomaActual].mensaje);}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  // Botones de productos
+  document.querySelectorAll('.producto button').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      const nombre = btn.dataset.nombre || e.target.closest('.producto').querySelector('h3').textContent; 
+      const precio = btn.dataset.precio;
+      agregarAlCarrito(nombre, precio);
+
+      // Cambiar color al hacer click
+      btn.classList.add('clicked');
+      setTimeout(()=>btn.classList.remove('clicked'), 300); // Vuelve al color original en 0.3s
+    });
+  });
+
+  // Botones de navegación o modo/idioma si quieres también
+  document.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      btn.classList.add('clicked');
+      setTimeout(()=>btn.classList.remove('clicked'), 300);
+    });
+  });
+});
+</script>
+</head>
+
+<body>
+<header>
+<h1 id="titulo">Tienda de Zapatos</h1>
+<p id="subtitulo">Los mejores zapatos al mejor precio</p>
+</header>
+
+<nav>
+<a id="link-inicio" href="index.html">Inicio</a>
+<a id="link-contacto" href="#">Contacto</a>
+<a id="link-Home" href="home.html">Home</a>
+<button id="modo-btn" onclick="cambiarModo()">Modo Oscuro</button>
+<button id="idioma-btn" onclick="cambiarIdioma()">Español a Inglés</button>
+<button id="carrito">🛒 Carrito (<span id="carrito-contador">0</span>)</button>
+
+</nav>
+
+<main>
+  <!-- Productos -->
+  <section>
+    <h2>Productos</h2>
+    <div class="productos-grid">
+      <div class="producto"><img src="IMG\zapatos\Z1.PNG" alt="">
+        <h3>Zapato Clásico</h3><p>45.99 Bs</p>
+        <button data-nombre="Zapato Clásico" data-precio="45.99">Comprar</button></div>    
+
+      <div class="producto">
+        <img src="IMG\zapatos\Z2.PNG" alt="">
+        <h3>Zapato Deportivo</h3>
+        <p>55.50 Bs</p>
+        <button data-nombre="Zapato Deportivo" data-precio="55.50">Comprar</button>
+      </div>
+
+      <div class="producto">
+          <img src="IMG\zapatos\Z3.PNG" alt="">
+          <h3>Zapato Elegante</h3>
+          <p>75.00 Bs</p>
+          <button data-nombre="Zapato Elegante" data-precio="75.00">Comprar</button>
+      </div>
+
+      <div class="producto">
+          <img src="IMG\zapatos\Z4.PNG" alt="">
+          <h3>Zapato Casual</h3>
+          <p>35.90 Bs</p>
+          <button data-nombre="Zapato Casual" data-precio="35.90">Comprar</button>
+      </div>
+
+      <div class="producto">
+          <img src="IMG\zapatos\Z5.PNG" alt="">
+          <h3>Zapato Clásico</h3>
+          <p>48.50 Bs</p>
+          <button data-nombre="Zapato Clásico (2)" data-precio="48.50">Comprar</button>
+      </div>
+
+      <div class="producto">
+          <img src="IMG\zapatos\Z6.PNG" alt="">
+          <h3>Zapato Deportivo</h3>
+          <p>60.00 Bs</p>
+          <button data-nombre="Zapato Deportivo (2)" data-precio="60.00">Comprar</button>
+      </div>
+
+      <div class="producto">
+          <img src="IMG\zapatos\Z7.PNG" alt="">
+          <h3>Zapato Elegante</h3>
+          <p>85.00 Bs</p>
+          <button data-nombre="Zapato Elegante (2)" data-precio="85.00">Comprar</button>
+      </div>
+
+      <div class="producto">
+          <img src="IMG\mocacines\M4.PNG" alt="">
+          <h3>Mocacín Casual</h3>
+          <p>40.25 Bs</p>
+          <button data-nombre="Mocacín Casual" data-precio="40.25">Comprar</button>
+      </div>
+
+      <div class="producto">
+          <img src="IMG\sandalias\S3.PNG" alt="">
+          <h3>Sandalia Playera</h3>
+          <p>22.99 Bs</p>
+          <button data-nombre="Sandalia Playera (S3)" data-precio="22.99">Comprar</button>
+      </div>
+
+      <div class="producto">
+          <img src="IMG\sandalias\S5.PNG" alt="">
+          <h3>Sandalia Playera</h3>
+          <p>28.00 Bs</p>
+          <button data-nombre="Sandalia Playera (S5)" data-precio="28.00">Comprar</button>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+<p id="footer-text">© 2025 Tienda de Zapatos - Todos los derechos reservados.</p>
+    
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/g/1ABLY8qzKk/" target="_blank" aria-label="Facebook">
+          <img src="IMG/redes/facebook.png" alt="Facebook" class="social-icon"> 
+          
+      </a>
+      <a href="https://www.instagram.com/tu_usuario" target="_blank" aria-label="Instagram">
+          <img src="IMG/redes/instagram.png" alt="Instagram" class="social-icon">
+         
+      </a>
+      <a href="https://www.twitter.com/tu_usuario" target="_blank" aria-label="Twitter">
+          <img src="IMG/redes/twitter.png" alt="Twitter" class="social-icon">
+          
+      </a>
+    </div>
+</footer>
+<!-- Modal carrito -->
+<div id="modal-carrito" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+    <div class="modal-content" style="background:white; padding:20px; border-radius:10px; width:350px;">
+        <h3 id="carrito-titulo">Carrito de compras</h3> <table style="width:100%; border-collapse:collapse;">
+            <thead>
+                <tr style="border-bottom: 2px solid #ccc;">
+                    <th id="carrito-th-producto" style="text-align:left;">Producto</th> <th id="carrito-th-cantidad" style="width: 15%; text-align:center;">Cant.</th> <th id="carrito-th-precio" style="width: 20%; text-align:right;">Precio Bs.</th> <th id="carrito-th-subtotal" style="width: 25%; text-align:right;">Subtotal (Bs.)</th> </tr>
+            </thead>
+            <tbody id="tabla-carrito"></tbody>
+        </table>
+        <button id="carrito-cerrar-btn" class="cerrar" style="margin-top:12px; padding:8px 15px; background:#c40000; color:white; border:none; border-radius:5px; cursor:pointer;">Cerrar</button> </div>
+</div>
+</div>
+<script src="carrito2.js"></script>
+<script>
+// Inicializar carrito
+document.addEventListener('DOMContentLoaded', ()=>{
+initCarrito();
+
+// Conectar botones de los productos al carrito
+ document.querySelectorAll('.producto button').forEach(btn=>{
+btn.addEventListener('click', e=>{
+// Captura el nombre (del h3) o directamente del data-nombre del botón
+const nombre = btn.dataset.nombre || e.target.closest('.producto').querySelector('h3').textContent; 
+ const precio = btn.dataset.precio; // Captura el precio del atributo data-precio
+
+        // Llama a la nueva función que acepta el precio
+        agregarAlCarrito(nombre, precio);
+ });
+ });
+});
+</script>
+
+</body>
+</html>
