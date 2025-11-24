@@ -326,4 +326,145 @@ body{
   margin-right: 0;
 }
 
+.featured-products h2 {
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.social-icon {
+  width: 80px;     /* 🔥 Ahora tamaño perfecto */
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px; /* Opcional */
+  transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.15); /* Animación al pasar el mouse */
+}
+
+
+
+#welcomeText {
+  text-align: center;
+}
+
+
+
+
+
+
+/* BOTÓN FLOTANTE */
+#chatbot-btn {
+  position: fixed;
+  bottom: 65px;
+  right: 65px;
+  width: 100px;
+  height: 100px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.60);
+  z-index: 999;
+}
+
+#chatbot-btn img {
+ 
+  width: 45px;     /* 📌 ícono más grande */
+  height: 45px;
+  object-fit: contain;
+
+}
+
+/* VENTANA DEL CHAT */
+#chatbot-window {
+  position: fixed;
+  bottom: 95px;     /* 🔼 más arriba para que no tape el botón */
+  right: 25px;
+  width: 330px;     /* 🔼 un poco más ancho */
+  height: 480px;    /* 🔼 más alto para más contenido */
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.25);
+  z-index: 999;
+  overflow: hidden; /* evita que los elementos salgan */
+}
+
+/* CABECERA */
+#chatbot-header {
+  background: var(--accent);
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px 8px 0 0;
+}
+
+#chatbot-close {
+  cursor: pointer;
+}
+
+/* MENSAJES */
+#chatbot-messages {
+  padding: 10px;
+  height: 220px;      /* 🔽 un poco menos para dejar más espacio a botones */
+  overflow-y: auto;
+}
+
+/* ESTILO DE MENSAJES */
+.message {
+  background: #eee;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+.bot {
+  background: var(--accent);
+  color: white;
+}
+
+/* OPCIONES */
+#chatbot-options {
+  padding: 10px;
+  max-height: 200px;   /* 🔥 límite para que no se tapen */
+  overflow-y: auto;    /* 🔥 scroll si hay demasiados botones */
+  padding-right: 6px;  /* evita que el scroll tape texto */
+}
+
+.option-btn {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  padding: 11px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.option-btn:hover {
+  background: #b30000; /* un rojo más oscuro al pasar el mouse */
+}
+
+
+
+
+
 /*stilo de la pagina search

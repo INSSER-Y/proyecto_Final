@@ -224,3 +224,172 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+// ELEMENTOS
+const btnChat = document.getElementById("chatbot-btn");
+const chatWindow = document.getElementById("chatbot-window");
+const closeBtn = document.getElementById("chatbot-close");
+const chatMessages = document.getElementById("chatbot-messages");
+const chatOptions = document.getElementById("chatbot-options");
+
+// ABRIR CHATBOT
+btnChat.addEventListener("click", () => {
+  chatWindow.style.display = "flex";
+  startChatbot();
+});
+
+// CERRAR CHATBOT
+closeBtn.addEventListener("click", () => {
+  chatWindow.style.display = "none";
+});
+
+// FUNCIONES UTILIDAD
+function botMsg(text) {
+  const div = document.createElement("div");
+  div.className = "message bot";
+  div.textContent = text;
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function showOptions(buttons) {
+  chatOptions.innerHTML = "";
+  buttons.forEach(btn => {
+    let b = document.createElement("button");
+    b.className = "option-btn";
+    b.textContent = btn.text;
+    b.onclick = btn.action;
+    chatOptions.appendChild(b);
+  });
+}
+
+// INICIO
+function startChatbot() {
+  chatMessages.innerHTML = "";
+  botMsg("👋 ¡Hola! Soy el asistente virtual de *Mocacines Bolivia*. ¿Qué necesitas hoy?");
+
+  showOptions([
+    { text: "🛍️ Ver productos", action: categoryMenu },
+    { text: "📏 Guía de tallas", action: sizeGuide },
+    { text: "🤖 Recomendación", action: recomendador },
+    { text: "❓ Preguntas frecuentes", action: faqMenu },
+    { text: "🚚 Envíos", action: infoEnvios },
+    { text: "💳 Métodos de pago", action: infoPagos },
+    { text: "↩️ Devoluciones", action: infoDevoluciones },
+    { text: "📞 Contacto", action: showContact }
+  ]);
+}
+
+//
+// ─────────────────────────────────────────────
+//   OPCIONES DEL CHATBOT
+// ─────────────────────────────────────────────
+//
+
+// 1️⃣ CATEGORÍAS
+function categoryMenu() {
+  botMsg("¿Qué tipo de calzado deseas ver?");
+  showOptions([
+    { text: "👞 Mocacines", action: () => showCategory("Mocacines clásicos, deportivos y premium.") },
+    { text: "🩴 Sandalias", action: () => showCategory("Sandalias elegantes, deportivas y casuales.") },
+    { text: "⭐ Productos Premium", action: () => showCategory("Calzado de cuero de alta calidad.") },
+    { text: "⬅️ Volver", action: startChatbot }
+  ]);
+}
+
+function showCategory(texto) {
+  botMsg("📌 " + texto + "\n\nPuedes ver todos los modelos en nuestra página principal.");
+  showOptions([{ text: "⬅️ Volver", action: categoryMenu }]);
+}
+
+// 2️⃣ GUÍA DE TALLAS
+function sizeGuide() {
+  botMsg(
+    "📏 *Guía de tallas*\n\n" +
+    "35 → 22.5 cm\n" +
+    "36 → 23.0 cm\n" +
+    "37 → 23.5 cm\n" +
+    "38 → 24.0 cm\n" +
+    "39 → 24.5 cm\n" +
+    "40 → 25.0 cm\n" +
+    "41 → 25.5 cm\n" +
+    "42 → 26.0 cm"
+  );
+
+  showOptions([{ text: "⬅️ Volver", action: startChatbot }]);
+}
+
+// 3️⃣ RECOMENDADOR AUTOMÁTICO
+function recomendador() {
+  botMsg("¿Qué buscas?");
+  showOptions([
+    { text: "👟 Comodidad diaria", action: () => recResult("Mocacín Deportivo") },
+    { text: "✨ Elegancia y estilo", action: () => recResult("Mocacín Premium") },
+    { text: "🌞 Para clima cálido", action: () => recResult("Sandalia Elegante/Deportiva") },
+    { text: "⬅️ Volver", action: startChatbot }
+  ]);
+}
+
+function recResult(producto) {
+  botMsg("Te recomiendo: *" + producto + "* 😄");
+  showOptions([{ text: "⬅️ Volver", action: recomendador }]);
+}
+
+// 4️⃣ FAQ
+function faqMenu() {
+  botMsg("Elige una pregunta:");
+  showOptions([
+    { text: "📦 ¿Hacen envíos?", action: infoEnvios },
+    { text: "💳 ¿Qué métodos de pago aceptan?", action: infoPagos },
+    { text: "↩️ ¿Aceptan devoluciones?", action: infoDevoluciones },
+    { text: "📐 ¿Cómo saber mi talla?", action: sizeGuide },
+    { text: "⬅️ Volver", action: startChatbot }
+  ]);
+}
+
+// 5️⃣ ENVÍOS
+function infoEnvios() {
+  botMsg(
+    "🚚 *Información de envíos*\n" +
+    "• Envíos a toda Bolivia\n" +
+    "• Entrega de 1 a 3 días hábiles\n" +
+    "• Envío gratis por compras superiores a 250 Bs."
+  );
+  showOptions([{ text: "⬅️ Volver", action: startChatbot }]);
+}
+
+// 6️⃣ PAGOS
+function infoPagos() {
+  botMsg(
+    "💳 *Métodos de pago*\n" +
+    "✔ Transferencia bancaria\n" +
+    "✔ Tigo Money\n" +
+    "✔ QR Simple\n" +
+    "✔ Contra entrega (zonas disponibles)"
+  );
+  showOptions([{ text: "⬅️ Volver", action: startChatbot }]);
+}
+
+// 7️⃣ DEVOLUCIONES
+function infoDevoluciones() {
+  botMsg(
+    "↩️ *Política de devoluciones*\n" +
+    "Puedes cambiar o devolver un producto dentro de los primeros 7 días si está en perfecto estado."
+  );
+  showOptions([{ text: "⬅️ Volver", action: startChatbot }]);
+}
+
+// 8️⃣ CONTACTO
+function showContact() {
+  botMsg(
+    "📞 *Contacto*\n" +
+    "WhatsApp: +591 72686330\n" +
+    "Email: iltonmago48@gmail.com"
+  );
+  showOptions([{ text: "⬅️ Volver", action: startChatbot }]);
+}
+
+
+
+

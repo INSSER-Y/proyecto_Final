@@ -18,7 +18,6 @@
 
     <nav class="main-nav">
       <a href="index.html" id="navHome">Inicio</a>
-      <a href="home.html" id="navHome2">Home</a>
       <a href="#" id="logout" class="hidden">Cerrar sesión</a>
 
       <label for="langSelect" class="inline-label">Idioma</label>
@@ -43,7 +42,7 @@
     <option value="SANDALIAS.html">Sandalias</option>
     <option value="hombres.html">Hombres</option>
     <option value="Mujer.html">Mujer</option>
-    <option value="ninos_results.html">Niños</option>
+    
   </select>
   <input type="text" placeholder="Buscar en Mocacines Bolivia" name="q">
   <button type="submit">🔍</button>
@@ -53,9 +52,9 @@
   <main class="container">
 
   <!-- SECCIÓN DE BIENVENIDA -->
-  <section id="welcomeSection">
+  <section id="welcomeSection" class="featured-products">
     <h2 id="welcomeTitle">Bienvenido</h2>
-    <p id="welcomeText">Gracias por visitar nuestra tienda de mocacines artesanales.</p>
+    <p id="welcomeText" class="featured-products">Gracias por visitar nuestra tienda de mocacines artesanales.</p>
   </section>
 
   <!-- SECCIÓN DE PRODUCTOS -->
@@ -87,11 +86,51 @@
 
 </main>
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="social-links">
+  <a href="https://www.facebook.com/share/g/1ABLY8qzKk/" target="_blank" aria-label="Facebook">
+    <img src="IMG/redes/facebook.png" alt="Facebook" class="social-icon"> 
+  </a>
+
+  <a href="https://www.instagram.com/tu_usuario" target="_blank" aria-label="Instagram">
+    <img src="IMG/redes/instagram.png" alt="Instagram" class="social-icon">
+  </a>
+
+  <!-- ✅ WhatsApp -->
+  <a href="https://wa.me/59172686330" target="_blank" aria-label="WhatsApp">
+    <img src="IMG/redes/whatsapp.jpg" alt="WhatsApp" class="social-icon">
+  </a>
+
+  <!-- ✅ Gmail -->
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=iltonmago48@gmail.com">
+
+    <img src="IMG/redes/gmail.jpg" alt="Gmail" class="social-icon">
+  </a>
+</div>
+  <br><br><br><br><br>
   <footer class="site-footer">
     <p>&copy; <span id="year"></span> Mocacines Bolivia</p>
   </footer>
 
+
+<!-- BOTÓN FLOTANTE DEL CHATBOT -->
+<div id="chatbot-btn">
+  <img src="IMG/redes/help.png" alt="Ayuda">
+</div>
+
+<!-- VENTANA DEL CHATBOT -->
+<div id="chatbot-window">
+  <div id="chatbot-header">
+    Asistente Virtual
+    <span id="chatbot-close">✖</span>
+  </div>
+
+  <div id="chatbot-messages"></div>
+  <div id="chatbot-options"></div>
+</div>
+
+
+
   <script src="script.js"></script>
+
 </body>
 </html>
